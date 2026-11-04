@@ -1,0 +1,6 @@
+/home/oliph/projects/InsureRisk-Linux/build/CMakeFiles/InsureRiskLinux.dir
+/home/oliph/projects/InsureRisk-Linux/build/CMakeFiles/cppcheck.dir
+/home/oliph/projects/InsureRisk-Linux/build/CMakeFiles/edit_cache.dir
+/home/oliph/projects/InsureRisk-Linux/build/CMakeFiles/rebuild_cache.dir
+/home/oliph/projects/InsureRisk-Linux/build/CMakeFiles/InsureRiskLinux_autogen_timestamp_deps.dir
+/home/oliph/projects/InsureRisk-Linux/build/CMakeFiles/InsureRiskLinux_autogen.dir
