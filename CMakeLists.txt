@@ -16,6 +16,7 @@ add_executable(InsureRiskLinux
     include/MainWindow.hpp
     src/main.cpp
     src/MainWindow.cpp
+    src/LearningCentre.cpp
     src/Policyholder.cpp
     src/RiskEvaluator.cpp
     src/ActuarialEngine.cpp
@@ -76,7 +77,7 @@ if(BUILD_TESTING)
         src/MonteCarloSimulator.cpp
         src/sqlite3.c
     )
-    target_link_libraries(unit_tests PRIVATE gtest_main Threads::Threads ${CMAKE_DL_LIBS})
+    target_link_libraries(unit_tests PRIVATE gtest_main Qt6::Core Threads::Threads ${CMAKE_DL_LIBS})
     target_include_directories(unit_tests PRIVATE include)
     include(GoogleTest)
     gtest_discover_tests(unit_tests)

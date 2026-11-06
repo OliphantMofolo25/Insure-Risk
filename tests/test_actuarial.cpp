@@ -5,18 +5,20 @@
 #include "MonteCarloSimulator.hpp"
 
 TEST(PolicyholderTest, ValidationAndGetters) {
-    // id, username, coverType, age, monthlyIncome, activeLoans, geoZone, assetValue, riskParam
-    Policyholder ph("POL-001", "testuser", CoverType::LIFE, 40, 5000.0, 10000.0, "Suburban", 100000.0, 1);
+    Policyholder ph("POL-001", "testuser", "Test Client", "", "", CoverType::Life,
+                    40, 5000.0, 10000.0, "Suburban", 100000.0, 1);
     EXPECT_EQ(ph.getPolicyId(), "POL-001");
     EXPECT_EQ(ph.getAge(), 40);
     EXPECT_TRUE(ph.isValid());
 
-    Policyholder invalidPh("", "testuser", CoverType::LIFE, 15, -100.0, 0.0, "Rural", -500.0, -1);
+    Policyholder invalidPh("", "testuser", "Test Client", "", "", CoverType::Life,
+                           15, -100.0, 0.0, "Rural", -500.0, -1);
     EXPECT_FALSE(invalidPh.isValid());
 }
 
 TEST(RiskEvaluatorTest, Calculations) {
-    Policyholder ph("POL-002", "testuser", CoverType::CAR, 30, 4000.0, 5000.0, "Urban", 200000.0, 2);
+    Policyholder ph("POL-002", "testuser", "Test Client", "", "", CoverType::Car,
+                    30, 4000.0, 5000.0, "Urban", 200000.0, 2);
     double riskScore = RiskEvaluator::calculateRiskScore(ph);
     double expectedLoss = RiskEvaluator::calculateExpectedLoss(ph);
 
@@ -26,7 +28,8 @@ TEST(RiskEvaluatorTest, Calculations) {
 }
 
 TEST(ActuarialEngineTest, PremiumPricing) {
-    Policyholder ph("POL-003", "testuser", CoverType::PROPERTY, 45, 8000.0, 20000.0, "Urban", 300000.0, 0);
+    Policyholder ph("POL-003", "testuser", "Test Client", "", "", CoverType::Property,
+                    45, 8000.0, 20000.0, "Urban", 300000.0, 0);
     ActuarialEngine engine(0.15, 0.05);
     double basePremium = engine.calculateBasePremium(ph);
     
@@ -40,7 +43,8 @@ TEST(ActuarialEngineTest, PremiumPricing) {
 }
 
 TEST(MonteCarloSimulatorTest, SimulationAndVaR) {
-    Policyholder ph("POL-004", "testuser", CoverType::ASSET_PROTECTION, 50, 6000.0, 15000.0, "Suburban", 150000.0, 1);
+    Policyholder ph("POL-004", "testuser", "Test Client", "", "", CoverType::AssetProtection,
+                    50, 6000.0, 15000.0, "Suburban", 150000.0, 1);
     MonteCarloSimulator simulator(500, 4);
     auto losses = simulator.simulateLosses(ph);
 

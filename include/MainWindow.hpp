@@ -18,6 +18,8 @@
 #include "RiskAdvisoryEngine.hpp"
 
 class QChartView;
+class LearningCentre;
+class QCheckBox;
 
 class MainWindow : public QMainWindow {
     Q_OBJECT
@@ -37,16 +39,35 @@ private slots:
 
 private:
     void setupUI();
+    void navigateTo(QWidget *page);
+    void showWorkspace(QWidget *page);
+    void goBack();
+    void showAuthPage(int index);
+
+    struct AuthForm {
+        QLineEdit *username;
+        QLineEdit *password;
+        QLineEdit *confirmation = nullptr;
+        QCheckBox *showPassword;
+        QLabel *feedback;
+    };
+    void clearAuthFeedback(AuthForm &form);
 
     QStackedWidget *centralStack;
     QWidget *loginScreen;
     QWidget *appScreen;
 
-    QLineEdit *userLoginInput;
-    QLineEdit *passLoginInput;
-    QLabel *authStatusLabel;
+    QStackedWidget *authForms;
+    AuthForm signInForm;
+    AuthForm registrationForm;
 
     QTabWidget *tabWidget;
+    LearningCentre *learningCentre;
+    QStackedWidget *workspaceStack;
+    QWidget *homePage;
+    QWidget *currentWorkspace = nullptr;
+    QPushButton *backBtn;
+    QVector<QWidget *> workspaceHistory;
 
     QLineEdit *policyIdInput;
     QLineEdit *clientNameInput;
@@ -63,6 +84,8 @@ private:
 
     QTextEdit *resultsOutput;
     QProgressBar *simProgressBar;
+    QLabel *simulationStatus;
+    QLabel *simulationContext;
     QPushButton *acceptBtn;
     QPushButton *rejectBtn;
     QPushButton *referBtn = nullptr;
