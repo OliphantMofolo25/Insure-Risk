@@ -1019,7 +1019,7 @@ void MainWindow::setupUI()
               background:#273449; color:#b8c6d8; border-color:#475569;
           }
           QPushButton:checked { background:#14532d; color:#dcfce7; border-color:#4ade80; }
-          QLineEdit[invalid="true"] { border:2px solid #f87171; }
+          QLineEdit[invalid="true"] { border:2px solid #e26666; }
           QLabel#previewPanel, QLabel#pill[decision="accept"] { background:#14532d; color:#dcfce7; }
           QLabel#pill[decision="refer"] { background:#42260c; color:#fde68a; }
           QLabel#pill[decision="decline"] { background:#481a26; color:#fecdd3; }
@@ -1028,7 +1028,7 @@ void MainWindow::setupUI()
           QLabel#authFeedback { background:#481a26; color:#fecdd3; }
           QLabel#authFeedback[success="true"] { background:#14532d; color:#dcfce7; }
         )" : lightStyle);
-        chartView->setBackgroundBrush(dark ? QColor("#172338") : QColor("#ffffff"));
+        chartView->setBackgroundBrush(dark ? QColor("#1c2b45") : QColor("#ffffff"));
         learningCentre->setDarkMode(dark);
     };
     darkTheme = DatabaseManager::getSetting("theme", "light") == "dark";
