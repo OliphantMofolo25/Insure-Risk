@@ -1,0 +1,13 @@
+/home/molefe/School/Insure-Risk/build-qtest/CMakeFiles/InsureRiskLinux.dir
+/home/molefe/School/Insure-Risk/build-qtest/CMakeFiles/cppcheck.dir
+/home/molefe/School/Insure-Risk/build-qtest/CMakeFiles/catch_tests.dir
+/home/molefe/School/Insure-Risk/build-qtest/CMakeFiles/qt_tests.dir
+/home/molefe/School/Insure-Risk/build-qtest/CMakeFiles/test.dir
+/home/molefe/School/Insure-Risk/build-qtest/CMakeFiles/edit_cache.dir
+/home/molefe/School/Insure-Risk/build-qtest/CMakeFiles/rebuild_cache.dir
+/home/molefe/School/Insure-Risk/build-qtest/CMakeFiles/InsureRiskLinux_autogen_timestamp_deps.dir
+/home/molefe/School/Insure-Risk/build-qtest/CMakeFiles/InsureRiskLinux_autogen.dir
+/home/molefe/School/Insure-Risk/build-qtest/CMakeFiles/catch_tests_autogen_timestamp_deps.dir
+/home/molefe/School/Insure-Risk/build-qtest/CMakeFiles/catch_tests_autogen.dir
+/home/molefe/School/Insure-Risk/build-qtest/CMakeFiles/qt_tests_autogen_timestamp_deps.dir
+/home/molefe/School/Insure-Risk/build-qtest/CMakeFiles/qt_tests_autogen.dir

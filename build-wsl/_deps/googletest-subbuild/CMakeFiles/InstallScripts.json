@@ -1,0 +1,7 @@
+{
+	"InstallScripts" : 
+	[
+		"/home/molefe/School/Insure-Risk/build-wsl/_deps/googletest-subbuild/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

@@ -39,6 +39,7 @@ target_link_libraries(InsureRiskLinux PRIVATE
     ${CMAKE_DL_LIBS}
 )
 
+
 # --- Optional Cppcheck Static Analysis Target ---
 find_program(CPPCHECK cppcheck)
 if(CPPCHECK)
@@ -82,6 +83,46 @@ if(BUILD_TESTING)
     include(GoogleTest)
     gtest_discover_tests(unit_tests)
 endif()
+find_package(Catch2 3 REQUIRED)
 
+add_executable(catch_tests test.cpp)
 
+target_link_libraries(catch_tests
+ PRIVATE
+ Catch2::Catch2WithMain
+)
+enable_testing()
 
+add_test(
+NAME Catch2Tests
+COMMAND catch_tests
+)
+find_package(Qt6 REQUIRED COMPONENTS Test)
+add_executable(qt_tests qt_test.cpp)
+
+set_target_properties(qt_tests PROPERTIES AUTOMOC ON)
+
+target_link_libraries(qt_tests PRIVATE Qt6::Test)
+enable_testing()
+add_test(NAME QtLibraryTests COMMAND qt_tests)
+
+# --- Google Test Setup ---
+enable_testing()
+find_package(GTest REQUIRED)
+
+add_executable(gtest_runner
+    gtest_main.cpp
+)
+
+target_include_directories(gtest_runner PRIVATE ${CMAKE_SOURCE_DIR}/include)
+target_link_libraries(gtest_runner PRIVATE GTest::gtest_main)
+
+include(GoogleTest)
+gtest_discover_tests(gtest_runner)
+
+# --- Functional Test Target ---
+add_executable(functional_runner
+    functional_tests.cpp
+)
+target_include_directories(functional_runner PRIVATE ${CMAKE_SOURCE_DIR}/include)
+target_link_libraries(functional_runner PRIVATE GTest::gtest_main)

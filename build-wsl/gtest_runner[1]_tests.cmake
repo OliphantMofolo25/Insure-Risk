@@ -1,0 +1,7 @@
+add_test([=[InsuranceRiskSuite.BasicSanityCheck]=]  /home/mofolo/Documents/Insure-Risk/build-wsl/gtest_runner [==[--gtest_filter=InsuranceRiskSuite.BasicSanityCheck]==] --gtest_also_run_disabled_tests)
+set_tests_properties([=[InsuranceRiskSuite.BasicSanityCheck]=]  PROPERTIES WORKING_DIRECTORY /home/mofolo/Documents/Insure-Risk/build-wsl SKIP_REGULAR_EXPRESSION [==[\[  SKIPPED \]]==])
+add_test([=[InsuranceRiskSuite.ValidAgeBoundary]=]  /home/mofolo/Documents/Insure-Risk/build-wsl/gtest_runner [==[--gtest_filter=InsuranceRiskSuite.ValidAgeBoundary]==] --gtest_also_run_disabled_tests)
+set_tests_properties([=[InsuranceRiskSuite.ValidAgeBoundary]=]  PROPERTIES WORKING_DIRECTORY /home/mofolo/Documents/Insure-Risk/build-wsl SKIP_REGULAR_EXPRESSION [==[\[  SKIPPED \]]==])
+add_test([=[InsuranceRiskSuite.RiskCategoryCheck]=]  /home/mofolo/Documents/Insure-Risk/build-wsl/gtest_runner [==[--gtest_filter=InsuranceRiskSuite.RiskCategoryCheck]==] --gtest_also_run_disabled_tests)
+set_tests_properties([=[InsuranceRiskSuite.RiskCategoryCheck]=]  PROPERTIES WORKING_DIRECTORY /home/mofolo/Documents/Insure-Risk/build-wsl SKIP_REGULAR_EXPRESSION [==[\[  SKIPPED \]]==])
+set(  gtest_runner_TESTS InsuranceRiskSuite.BasicSanityCheck InsuranceRiskSuite.ValidAgeBoundary InsuranceRiskSuite.RiskCategoryCheck)

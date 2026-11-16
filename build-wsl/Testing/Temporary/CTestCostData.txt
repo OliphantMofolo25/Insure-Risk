@@ -1,0 +1,6 @@
+InsuranceRiskSuite.BasicSanityCheck 2 0.0443219
+InsuranceRiskSuite.ValidAgeBoundary 2 0.00913545
+InsuranceRiskSuite.RiskCategoryCheck 2 0.00956539
+Catch2Tests 2 0.0505963
+QtLibraryTests 2 0.0977387
+---

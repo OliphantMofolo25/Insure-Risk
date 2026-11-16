@@ -1,0 +1,27 @@
+{
+  "tests": 3,
+  "name": "AllTests",
+  "testsuites": [
+    {
+      "name": "InsuranceRiskSuite",
+      "tests": 3,
+      "testsuite": [
+        {
+          "name": "BasicSanityCheck",
+          "file": "\/home\/molefe\/School\/Insure-Risk\/gtest_main.cpp",
+          "line": 4
+        },
+        {
+          "name": "ValidAgeBoundary",
+          "file": "\/home\/molefe\/School\/Insure-Risk\/gtest_main.cpp",
+          "line": 8
+        },
+        {
+          "name": "RiskCategoryCheck",
+          "file": "\/home\/molefe\/School\/Insure-Risk\/gtest_main.cpp",
+          "line": 14
+        }
+      ]
+    }
+  ]
+}

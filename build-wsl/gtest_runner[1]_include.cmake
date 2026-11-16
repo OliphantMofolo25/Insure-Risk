@@ -1,0 +1,5 @@
+if(EXISTS "/home/mofolo/Documents/Insure-Risk/build-wsl/gtest_runner[1]_tests.cmake")
+  include("/home/mofolo/Documents/Insure-Risk/build-wsl/gtest_runner[1]_tests.cmake")
+else()
+  add_test(gtest_runner_NOT_BUILT gtest_runner_NOT_BUILT)
+endif()

@@ -1,0 +1,13 @@
+Test project /home/molefe/School/Insure-Risk/build-wsl
+    Start 1: PolicyholderTest.ValidationAndGetters
+1/4 Test #1: PolicyholderTest.ValidationAndGetters ......   Passed    0.02 sec
+    Start 2: RiskEvaluatorTest.Calculations
+2/4 Test #2: RiskEvaluatorTest.Calculations .............   Passed    0.02 sec
+    Start 3: ActuarialEngineTest.PremiumPricing
+3/4 Test #3: ActuarialEngineTest.PremiumPricing .........   Passed    0.05 sec
+    Start 4: MonteCarloSimulatorTest.SimulationAndVaR
+4/4 Test #4: MonteCarloSimulatorTest.SimulationAndVaR ...   Passed    0.02 sec
+
+100% tests passed, 0 tests failed out of 4
+
+Total Test time (real) =   0.12 sec

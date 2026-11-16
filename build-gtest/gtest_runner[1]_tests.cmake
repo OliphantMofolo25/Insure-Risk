@@ -1,0 +1,7 @@
+add_test([=[InsuranceRiskSuite.BasicSanityCheck]=]  /home/molefe/School/Insure-Risk/build-gtest/gtest_runner [==[--gtest_filter=InsuranceRiskSuite.BasicSanityCheck]==] --gtest_also_run_disabled_tests)
+set_tests_properties([=[InsuranceRiskSuite.BasicSanityCheck]=]  PROPERTIES DEF_SOURCE_LINE /home/molefe/School/Insure-Risk/gtest_main.cpp:4 WORKING_DIRECTORY /home/molefe/School/Insure-Risk/build-gtest SKIP_REGULAR_EXPRESSION [==[\[  SKIPPED \]]==])
+add_test([=[InsuranceRiskSuite.ValidAgeBoundary]=]  /home/molefe/School/Insure-Risk/build-gtest/gtest_runner [==[--gtest_filter=InsuranceRiskSuite.ValidAgeBoundary]==] --gtest_also_run_disabled_tests)
+set_tests_properties([=[InsuranceRiskSuite.ValidAgeBoundary]=]  PROPERTIES DEF_SOURCE_LINE /home/molefe/School/Insure-Risk/gtest_main.cpp:8 WORKING_DIRECTORY /home/molefe/School/Insure-Risk/build-gtest SKIP_REGULAR_EXPRESSION [==[\[  SKIPPED \]]==])
+add_test([=[InsuranceRiskSuite.RiskCategoryCheck]=]  /home/molefe/School/Insure-Risk/build-gtest/gtest_runner [==[--gtest_filter=InsuranceRiskSuite.RiskCategoryCheck]==] --gtest_also_run_disabled_tests)
+set_tests_properties([=[InsuranceRiskSuite.RiskCategoryCheck]=]  PROPERTIES DEF_SOURCE_LINE /home/molefe/School/Insure-Risk/gtest_main.cpp:14 WORKING_DIRECTORY /home/molefe/School/Insure-Risk/build-gtest SKIP_REGULAR_EXPRESSION [==[\[  SKIPPED \]]==])
+set(  gtest_runner_TESTS InsuranceRiskSuite.BasicSanityCheck InsuranceRiskSuite.ValidAgeBoundary InsuranceRiskSuite.RiskCategoryCheck)

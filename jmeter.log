@@ -1,0 +1,171 @@
+2026-11-12 02:21:33,621 INFO o.a.j.u.JMeterUtils: Setting Locale to en_EN
+2026-11-12 02:21:33,817 INFO o.a.j.JMeter: Loading user properties from: /opt/apache-jmeter-5.6.3/bin/user.properties
+2026-11-12 02:21:33,824 INFO o.a.j.JMeter: Loading system properties from: /opt/apache-jmeter-5.6.3/bin/system.properties
+2026-11-12 02:21:33,872 INFO o.a.j.JMeter: Copyright (c) 1998-2024 The Apache Software Foundation
+2026-11-12 02:21:33,874 INFO o.a.j.JMeter: Version 5.6.3
+2026-11-12 02:21:33,875 INFO o.a.j.JMeter: java.version=25.0.5
+2026-11-12 02:21:33,876 INFO o.a.j.JMeter: java.vm.name=OpenJDK 64-Bit Server VM
+2026-11-12 02:21:33,876 INFO o.a.j.JMeter: os.name=Linux
+2026-11-12 02:21:33,877 INFO o.a.j.JMeter: os.arch=amd64
+2026-11-12 02:21:33,886 INFO o.a.j.JMeter: os.version=6.16.8+kali-amd64
+2026-11-12 02:21:33,886 INFO o.a.j.JMeter: file.encoding=UTF-8
+2026-11-12 02:21:33,886 INFO o.a.j.JMeter: java.awt.headless=null
+2026-11-12 02:21:33,886 INFO o.a.j.JMeter: Max memory     =1073741824
+2026-11-12 02:21:33,887 INFO o.a.j.JMeter: Available Processors =1
+2026-11-12 02:21:34,098 INFO o.a.j.JMeter: Default Locale=English (EN)
+2026-11-12 02:21:34,099 INFO o.a.j.JMeter: JMeter  Locale=English (EN)
+2026-11-12 02:21:34,100 INFO o.a.j.JMeter: JMeterHome=/opt/apache-jmeter-5.6.3
+2026-11-12 02:21:34,100 INFO o.a.j.JMeter: user.dir  =/home/molefe/School/Insure-Risk
+2026-11-12 02:21:34,101 INFO o.a.j.JMeter: PWD       =/home/molefe/School/Insure-Risk
+2026-11-12 02:21:34,102 INFO o.a.j.JMeter: IP: 127.0.1.1 Name: kali FullName: kali
+2026-11-12 02:21:34,199 INFO o.a.j.JMeter: Loaded icon properties from org/apache/jmeter/images/icon.properties
+2026-11-12 02:21:36,382 INFO o.a.j.JMeterGuiLauncher: Setting LAF to: com.github.weisj.darklaf.DarkLaf:com.github.weisj.darklaf.theme.DarculaTheme
+2026-11-12 02:21:48,953 INFO o.a.j.JMeterGuiLauncher: Loading file: /home/molefe/Documents/InsureRisk-Linux/performance-tests/insurerisk-sqlite-read-test.jmx
+2026-11-12 02:21:49,248 INFO o.a.j.s.FileServer: Default base='/home/molefe/School/Insure-Risk'
+2026-11-12 02:21:49,419 INFO o.a.j.s.FileServer: Set new base='/home/molefe/Documents/InsureRisk-Linux/performance-tests'
+2026-11-12 02:21:53,315 INFO o.a.j.s.SaveService: Testplan (JMX) version: 2.2. Testlog (JTL) version: 2.2
+2026-11-12 02:21:53,659 INFO o.a.j.s.SaveService: Using SaveService properties version 5.0
+2026-11-12 02:21:53,705 INFO o.a.j.s.SaveService: Using SaveService properties file encoding UTF-8
+2026-11-12 02:21:53,840 INFO o.a.j.s.SaveService: Loading file: /home/molefe/Documents/InsureRisk-Linux/performance-tests/insurerisk-sqlite-read-test.jmx
+2026-11-12 02:21:54,543 INFO o.a.j.s.FileServer: Set new base='/home/molefe/Documents/InsureRisk-Linux/performance-tests'
+2026-11-12 02:21:56,372 INFO o.a.j.s.SampleResult: Note: Sample TimeStamps are START times
+2026-11-12 02:21:56,374 INFO o.a.j.s.SampleResult: sampleresult.default.encoding is set to UTF-8
+2026-11-12 02:21:56,375 INFO o.a.j.s.SampleResult: sampleresult.useNanoTime=true
+2026-11-12 02:21:56,375 INFO o.a.j.s.SampleResult: sampleresult.nanoThreadSleep=5000
+2026-11-12 02:29:27,655 ERROR o.a.j.g.a.Save: Could not backup file! Backup directory does not exist, is not a directory or could not be created ! </opt/apache-jmeter-5.6.3/backups>
+2026-11-12 02:29:39,435 INFO o.a.j.e.StandardJMeterEngine: Running the test!
+2026-11-12 02:29:39,452 INFO o.a.j.s.SampleEvent: List of sample_variables: []
+2026-11-12 02:29:39,452 INFO o.a.j.s.SampleEvent: List of sample_variables: []
+2026-11-12 02:29:39,454 INFO o.a.j.e.u.CompoundVariable: Note: Function class names must contain the string: '.functions.'
+2026-11-12 02:29:39,454 INFO o.a.j.e.u.CompoundVariable: Note: Function class names must not contain the string: '.gui.'
+2026-11-12 02:29:40,094 INFO o.a.j.g.u.JMeterMenuBar: setRunning(true, *local*)
+2026-11-12 02:29:40,531 INFO o.a.j.e.StandardJMeterEngine: Starting ThreadGroup: 1 : Thread Group
+2026-11-12 02:29:40,558 INFO o.a.j.e.StandardJMeterEngine: Starting 5 threads for group Thread Group.
+2026-11-12 02:29:40,559 INFO o.a.j.e.StandardJMeterEngine: Thread will continue on error
+2026-11-12 02:29:40,560 INFO o.a.j.t.ThreadGroup: Starting thread group... number=1 threads=5 ramp-up=5 delayedStart=false
+2026-11-12 02:29:40,770 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-1
+2026-11-12 02:29:40,778 INFO o.a.j.t.ThreadGroup: Started thread group number 1
+2026-11-12 02:29:40,783 INFO o.a.j.e.StandardJMeterEngine: All thread groups have been started
+2026-11-12 02:29:41,625 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-2
+2026-11-12 02:29:42,524 INFO o.a.j.t.JMeterThread: Thread is done: Thread Group 1-1
+2026-11-12 02:29:42,569 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-1
+2026-11-12 02:29:42,592 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-3
+2026-11-12 02:29:42,761 INFO o.a.j.t.JMeterThread: Thread is done: Thread Group 1-2
+2026-11-12 02:29:42,775 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-2
+2026-11-12 02:29:42,888 INFO o.a.j.t.JMeterThread: Thread is done: Thread Group 1-3
+2026-11-12 02:29:42,890 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-3
+2026-11-12 02:29:43,588 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-4
+2026-11-12 02:29:43,796 INFO o.a.j.t.JMeterThread: Thread is done: Thread Group 1-4
+2026-11-12 02:29:43,797 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-4
+2026-11-12 02:29:44,592 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-5
+2026-11-12 02:29:44,747 INFO o.a.j.t.JMeterThread: Thread is done: Thread Group 1-5
+2026-11-12 02:29:44,748 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-5
+2026-11-12 02:29:44,761 INFO o.a.j.e.StandardJMeterEngine: Notifying test listeners of end of test
+2026-11-12 02:29:44,773 INFO o.a.j.g.u.JMeterMenuBar: setRunning(false, *local*)
+2026-11-12 08:39:20,887 ERROR o.a.j.g.a.Save: Could not backup file! Backup directory does not exist, is not a directory or could not be created ! </opt/apache-jmeter-5.6.3/backups>
+2026-11-12 08:39:28,303 INFO o.a.j.e.StandardJMeterEngine: Running the test!
+2026-11-12 08:39:28,449 INFO o.a.j.s.SampleEvent: List of sample_variables: []
+2026-11-12 08:39:28,599 INFO o.a.j.g.u.JMeterMenuBar: setRunning(true, *local*)
+2026-11-12 08:39:36,288 INFO o.a.j.e.StandardJMeterEngine: Starting ThreadGroup: 1 : Thread Group
+2026-11-12 08:39:36,319 INFO o.a.j.e.StandardJMeterEngine: Starting 5 threads for group Thread Group.
+2026-11-12 08:39:36,327 INFO o.a.j.e.StandardJMeterEngine: Thread will continue on error
+2026-11-12 08:39:36,338 INFO o.a.j.t.ThreadGroup: Starting thread group... number=1 threads=5 ramp-up=5 delayedStart=false
+2026-11-12 08:39:36,509 INFO o.a.j.t.ThreadGroup: Started thread group number 1
+2026-11-12 08:39:36,510 INFO o.a.j.e.StandardJMeterEngine: All thread groups have been started
+2026-11-12 08:39:36,489 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-1
+2026-11-12 08:39:37,053 INFO o.a.j.t.JMeterThread: Thread is done: Thread Group 1-1
+2026-11-12 08:39:37,054 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-1
+2026-11-12 08:39:37,411 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-2
+2026-11-12 08:39:37,515 INFO o.a.j.t.JMeterThread: Thread is done: Thread Group 1-2
+2026-11-12 08:39:37,540 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-2
+2026-11-12 08:39:38,441 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-3
+2026-11-12 08:39:38,567 INFO o.a.j.t.JMeterThread: Thread is done: Thread Group 1-3
+2026-11-12 08:39:38,571 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-3
+2026-11-12 08:39:39,433 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-4
+2026-11-12 08:39:39,530 INFO o.a.j.t.JMeterThread: Thread is done: Thread Group 1-4
+2026-11-12 08:39:39,540 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-4
+2026-11-12 08:39:40,393 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-5
+2026-11-12 08:39:40,430 INFO o.a.j.t.JMeterThread: Thread is done: Thread Group 1-5
+2026-11-12 08:39:40,434 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-5
+2026-11-12 08:39:40,436 INFO o.a.j.e.StandardJMeterEngine: Notifying test listeners of end of test
+2026-11-12 08:39:40,446 INFO o.a.j.g.u.JMeterMenuBar: setRunning(false, *local*)
+2026-11-12 08:40:19,898 ERROR o.a.j.g.a.AbstractAction: Could not delete existing file /home/molefe/School/Insure-Risk
+2026-11-12 08:46:39,816 ERROR o.a.j.g.a.AbstractAction: Could not delete existing file /home/molefe/School/Insure-Risk
+2026-11-12 08:48:58,968 INFO o.a.j.e.StandardJMeterEngine: Running the test!
+2026-11-12 08:48:59,003 INFO o.a.j.s.SampleEvent: List of sample_variables: []
+2026-11-12 08:48:59,026 INFO o.a.j.g.u.JMeterMenuBar: setRunning(true, *local*)
+2026-11-12 08:48:59,581 INFO o.a.j.e.StandardJMeterEngine: Starting ThreadGroup: 1 : Thread Group
+2026-11-12 08:48:59,593 INFO o.a.j.e.StandardJMeterEngine: Starting 5 threads for group Thread Group.
+2026-11-12 08:48:59,594 INFO o.a.j.e.StandardJMeterEngine: Thread will continue on error
+2026-11-12 08:48:59,598 INFO o.a.j.t.ThreadGroup: Starting thread group... number=1 threads=5 ramp-up=5 delayedStart=false
+2026-11-12 08:48:59,645 INFO o.a.j.t.ThreadGroup: Started thread group number 1
+2026-11-12 08:48:59,647 INFO o.a.j.e.StandardJMeterEngine: All thread groups have been started
+2026-11-12 08:48:59,637 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-1
+2026-11-12 08:48:59,823 INFO o.a.j.t.JMeterThread: Thread is done: Thread Group 1-1
+2026-11-12 08:48:59,833 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-1
+2026-11-12 08:49:00,609 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-2
+2026-11-12 08:49:00,644 INFO o.a.j.t.JMeterThread: Thread is done: Thread Group 1-2
+2026-11-12 08:49:00,646 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-2
+2026-11-12 08:49:01,619 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-3
+2026-11-12 08:49:01,741 INFO o.a.j.t.JMeterThread: Thread is done: Thread Group 1-3
+2026-11-12 08:49:01,742 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-3
+2026-11-12 08:49:02,625 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-4
+2026-11-12 08:49:02,638 INFO o.a.j.t.JMeterThread: Thread is done: Thread Group 1-4
+2026-11-12 08:49:02,661 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-4
+2026-11-12 08:49:03,611 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-5
+2026-11-12 08:49:03,630 INFO o.a.j.t.JMeterThread: Thread is done: Thread Group 1-5
+2026-11-12 08:49:03,630 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-5
+2026-11-12 08:49:03,631 INFO o.a.j.e.StandardJMeterEngine: Notifying test listeners of end of test
+2026-11-12 08:49:03,634 INFO o.a.j.g.u.JMeterMenuBar: setRunning(false, *local*)
+2026-11-12 09:00:25,904 ERROR o.a.j.g.a.AbstractAction: Could not delete existing file /home/molefe/School/Insure-Risk
+2026-11-12 09:02:16,981 ERROR o.a.j.g.a.AbstractAction: Could not delete existing file /home/molefe/School/Insure-Risk
+2026-11-12 09:04:10,798 INFO o.a.j.s.FileServer: Set new base='/home/molefe/School/Insure-Risk/apache'
+2026-11-12 09:04:34,051 ERROR o.a.j.g.a.AbstractAction: Could not delete existing file /home/molefe/School/Insure-Risk
+2026-11-12 09:05:20,625 ERROR o.a.j.g.a.AbstractAction: Could not delete existing file /home/molefe/School/Insure-Risk
+2026-11-12 09:05:44,283 WARN o.a.j.s.CSVSaveService: Unknown column name Label
+2026-11-12 09:05:44,309 INFO o.a.j.s.CSVSaveService: /home/molefe/School/Insure-Risk/tests/summary.csv does not appear to have a valid header. Using default configuration.
+2026-11-12 09:05:44,320 WARN o.a.j.s.CSVSaveService: Cannot parse timestamp: 'Label', will try following formats [yyyy/MM/dd HH:mm:ss.SSS, yyyy/MM/dd HH:mm:ss, yyyy-MM-dd HH:mm:ss.SSS, yyyy-MM-dd HH:mm:ss, MM/dd/yy HH:mm:ss]
+2026-11-12 09:05:44,349 INFO o.a.j.s.CSVSaveService: Label did not match yyyy/MM/dd HH:mm:ss.SSS, trying next date format
+2026-11-12 09:05:44,356 INFO o.a.j.s.CSVSaveService: Label did not match yyyy/MM/dd HH:mm:ss, trying next date format
+2026-11-12 09:05:44,369 INFO o.a.j.s.CSVSaveService: Label did not match yyyy-MM-dd HH:mm:ss.SSS, trying next date format
+2026-11-12 09:05:44,370 INFO o.a.j.s.CSVSaveService: Label did not match yyyy-MM-dd HH:mm:ss, trying next date format
+2026-11-12 09:05:44,371 INFO o.a.j.s.CSVSaveService: Label did not match MM/dd/yy HH:mm:ss, trying next date format
+2026-11-12 09:05:44,372 WARN o.a.j.s.CSVSaveService: Error parsing field 'timeStamp' at line 1. java.text.ParseException: No date-time format found matching Label
+2026-11-12 09:05:44,375 WARN o.a.j.r.ResultCollector: Problem reading JTL file: /home/molefe/School/Insure-Risk/tests/summary.csv
+org.apache.jorphan.util.JMeterError: java.text.ParseException: No date-time format found matching Label
+	at org.apache.jmeter.save.CSVSaveService.makeResultFromDelimitedString(CSVSaveService.java:390) ~[ApacheJMeter_core.jar:5.6.3]
+	at org.apache.jmeter.save.CSVSaveService.processSamples(CSVSaveService.java:182) ~[ApacheJMeter_core.jar:5.6.3]
+	at org.apache.jmeter.reporters.ResultCollector.loadExistingFile(ResultCollector.java:379) [ApacheJMeter_core.jar:5.6.3]
+	at org.apache.jmeter.visualizers.gui.AbstractVisualizer.stateChanged(AbstractVisualizer.java:247) [ApacheJMeter_core.jar:5.6.3]
+	at org.apache.jmeter.gui.util.FilePanelEntry.fireFileChanged(FilePanelEntry.java:140) [ApacheJMeter_core.jar:5.6.3]
+	at org.apache.jmeter.gui.util.FilePanelEntry.actionPerformed(FilePanelEntry.java:155) [ApacheJMeter_core.jar:5.6.3]
+	at java.desktop/javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:1972) [?:?]
+	at java.desktop/javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2314) [?:?]
+	at java.desktop/javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:407) [?:?]
+	at java.desktop/javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:262) [?:?]
+	at java.desktop/javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:279) [?:?]
+	at com.github.weisj.darklaf.ui.button.DarkButtonListener.mouseReleased(DarkButtonListener.java:72) [darklaf-core-2.7.3.jar:2.7.3]
+	at java.desktop/java.awt.Component.processMouseEvent(Component.java:6576) [?:?]
+	at java.desktop/javax.swing.JComponent.processMouseEvent(JComponent.java:3404) [?:?]
+	at java.desktop/java.awt.Component.processEvent(Component.java:6341) [?:?]
+	at java.desktop/java.awt.Container.processEvent(Container.java:2260) [?:?]
+	at java.desktop/java.awt.Component.dispatchEventImpl(Component.java:4958) [?:?]
+	at java.desktop/java.awt.Container.dispatchEventImpl(Container.java:2318) [?:?]
+	at java.desktop/java.awt.Component.dispatchEvent(Component.java:4790) [?:?]
+	at java.desktop/java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4917) [?:?]
+	at java.desktop/java.awt.LightweightDispatcher.processMouseEvent(Container.java:4560) [?:?]
+	at java.desktop/java.awt.LightweightDispatcher.dispatchEvent(Container.java:4501) [?:?]
+	at java.desktop/java.awt.Container.dispatchEventImpl(Container.java:2304) [?:?]
+	at java.desktop/java.awt.Window.dispatchEventImpl(Window.java:2671) [?:?]
+	at java.desktop/java.awt.Component.dispatchEvent(Component.java:4790) [?:?]
+	at java.desktop/java.awt.EventQueue.dispatchEventImpl(EventQueue.java:725) [?:?]
+	at java.desktop/java.awt.EventQueue.dispatchEvent(EventQueue.java:702) [?:?]
+	at java.desktop/java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:203) [?:?]
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:124) [?:?]
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:113) [?:?]
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:109) [?:?]
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101) [?:?]
+	at java.desktop/java.awt.EventDispatchThread.run(EventDispatchThread.java:90) [?:?]
+Caused by: java.text.ParseException: No date-time format found matching Label
+	at org.apache.jmeter.save.CSVSaveService.makeResultFromDelimitedString(CSVSaveService.java:245) ~[ApacheJMeter_core.jar:5.6.3]
+	... 32 more

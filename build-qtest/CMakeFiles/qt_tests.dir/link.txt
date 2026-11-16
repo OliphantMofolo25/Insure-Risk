@@ -1,0 +1,1 @@
+/usr/bin/c++ -Wl,--dependency-file=CMakeFiles/qt_tests.dir/link.d CMakeFiles/qt_tests.dir/qt_tests_autogen/mocs_compilation.cpp.o CMakeFiles/qt_tests.dir/qt_test.cpp.o -o qt_tests  /usr/lib/x86_64-linux-gnu/libQt6Test.so.6.11.2 /usr/lib/x86_64-linux-gnu/libQt6Core.so.6.11.2

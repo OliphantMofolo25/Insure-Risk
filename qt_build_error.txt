@@ -1,0 +1,56 @@
+Change Dir: '/home/molefe/School/Insure-Risk/build-qtest'
+
+Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile qt_tests
+/usr/bin/cmake -S/home/molefe/School/Insure-Risk -B/home/molefe/School/Insure-Risk/build-qtest --check-build-system CMakeFiles/Makefile.cmake 0
+/usr/bin/gmake  -f CMakeFiles/Makefile2 qt_tests
+gmake[1]: Entering directory '/home/molefe/School/Insure-Risk/build-qtest'
+/usr/bin/cmake -S/home/molefe/School/Insure-Risk -B/home/molefe/School/Insure-Risk/build-qtest --check-build-system CMakeFiles/Makefile.cmake 0
+/usr/bin/cmake -E cmake_progress_start /home/molefe/School/Insure-Risk/build-qtest/CMakeFiles 5
+/usr/bin/gmake  -f CMakeFiles/Makefile2 CMakeFiles/qt_tests.dir/all
+gmake[2]: Entering directory '/home/molefe/School/Insure-Risk/build-qtest'
+/usr/bin/gmake  -f CMakeFiles/qt_tests_autogen_timestamp_deps.dir/build.make CMakeFiles/qt_tests_autogen_timestamp_deps.dir/depend
+gmake[3]: Entering directory '/home/molefe/School/Insure-Risk/build-qtest'
+cd /home/molefe/School/Insure-Risk/build-qtest && /usr/bin/cmake -E cmake_depends "Unix Makefiles" /home/molefe/School/Insure-Risk /home/molefe/School/Insure-Risk /home/molefe/School/Insure-Risk/build-qtest /home/molefe/School/Insure-Risk/build-qtest /home/molefe/School/Insure-Risk/build-qtest/CMakeFiles/qt_tests_autogen_timestamp_deps.dir/DependInfo.cmake "--color=" qt_tests_autogen_timestamp_deps
+gmake[3]: Leaving directory '/home/molefe/School/Insure-Risk/build-qtest'
+/usr/bin/gmake  -f CMakeFiles/qt_tests_autogen_timestamp_deps.dir/build.make CMakeFiles/qt_tests_autogen_timestamp_deps.dir/build
+gmake[3]: Entering directory '/home/molefe/School/Insure-Risk/build-qtest'
+gmake[3]: Nothing to be done for 'CMakeFiles/qt_tests_autogen_timestamp_deps.dir/build'.
+gmake[3]: Leaving directory '/home/molefe/School/Insure-Risk/build-qtest'
+[  0%] Built target qt_tests_autogen_timestamp_deps
+/usr/bin/gmake  -f CMakeFiles/qt_tests_autogen.dir/build.make CMakeFiles/qt_tests_autogen.dir/depend
+gmake[3]: Entering directory '/home/molefe/School/Insure-Risk/build-qtest'
+cd /home/molefe/School/Insure-Risk/build-qtest && /usr/bin/cmake -E cmake_depends "Unix Makefiles" /home/molefe/School/Insure-Risk /home/molefe/School/Insure-Risk /home/molefe/School/Insure-Risk/build-qtest /home/molefe/School/Insure-Risk/build-qtest /home/molefe/School/Insure-Risk/build-qtest/CMakeFiles/qt_tests_autogen.dir/DependInfo.cmake "--color=" qt_tests_autogen
+gmake[3]: Leaving directory '/home/molefe/School/Insure-Risk/build-qtest'
+/usr/bin/gmake  -f CMakeFiles/qt_tests_autogen.dir/build.make CMakeFiles/qt_tests_autogen.dir/build
+gmake[3]: Entering directory '/home/molefe/School/Insure-Risk/build-qtest'
+[ 20%] Automatic MOC and UIC for target qt_tests
+/usr/bin/cmake -E cmake_autogen /home/molefe/School/Insure-Risk/build-qtest/CMakeFiles/qt_tests_autogen.dir/AutogenInfo.json ""
+AutoGen: Parsing "SRC:/qt_test.cpp"
+AutoMoc: Generating "SRC:/build-qtest/qt_tests_autogen/include/qt_test.moc", because it doesn't exist, from "SRC:/qt_test.cpp"
+/usr/lib/qt6/libexec/moc -DQT_CORE_LIB -DQT_NO_DEBUG "-DQT_TESTCASE_BUILDDIR=\"/home/molefe/School/Insure-Risk/build-qtest\"" "-DQT_TESTCASE_SOURCEDIR=\"/home/molefe/School/Insure-Risk\"" -DQT_TESTLIB_LIB -I/home/molefe/School/Insure-Risk/include -I/usr/include/x86_64-linux-gnu/qt6/QtTest -I/usr/include/x86_64-linux-gnu/qt6 -I/usr/include/x86_64-linux-gnu/qt6/QtCore -I/usr/lib/x86_64-linux-gnu/qt6/mkspecs/linux-g++ -I/usr/include/c++/16 -I/usr/include/x86_64-linux-gnu/c++/16 -I/usr/include/c++/16/backward -I/usr/lib/gcc/x86_64-linux-gnu/16/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include --include /home/molefe/School/Insure-Risk/build-qtest/qt_tests_autogen/moc_predefs.h --output-dep-file -o /home/molefe/School/Insure-Risk/build-qtest/qt_tests_autogen/include/qt_test.moc /home/molefe/School/Insure-Risk/qt_test.cpp
+AutoMoc: Reading dependencies from "SRC:/build-qtest/qt_tests_autogen/include/qt_test.moc.d"
+AutoMoc: Merging MOC dependencies into "SRC:/build-qtest/qt_tests_autogen/deps"
+AutoGen: Writing the parse cache file "SRC:/build-qtest/CMakeFiles/qt_tests_autogen.dir/ParseCache.txt"
+/usr/bin/cmake -E touch /home/molefe/School/Insure-Risk/build-qtest/qt_tests_autogen/timestamp
+gmake[3]: Leaving directory '/home/molefe/School/Insure-Risk/build-qtest'
+[ 20%] Built target qt_tests_autogen
+/usr/bin/gmake  -f CMakeFiles/qt_tests.dir/build.make CMakeFiles/qt_tests.dir/depend
+gmake[3]: Entering directory '/home/molefe/School/Insure-Risk/build-qtest'
+cd /home/molefe/School/Insure-Risk/build-qtest && /usr/bin/cmake -E cmake_depends "Unix Makefiles" /home/molefe/School/Insure-Risk /home/molefe/School/Insure-Risk /home/molefe/School/Insure-Risk/build-qtest /home/molefe/School/Insure-Risk/build-qtest /home/molefe/School/Insure-Risk/build-qtest/CMakeFiles/qt_tests.dir/DependInfo.cmake "--color=" qt_tests
+Dependencies file "qt_tests_autogen/deps" is newer than depends file "/home/molefe/School/Insure-Risk/build-qtest/CMakeFiles/qt_tests.dir/compiler_depend.internal".
+Dependencies file "CMakeFiles/qt_tests.dir/qt_tests_autogen/mocs_compilation.cpp.o.d" is newer than depends file "/home/molefe/School/Insure-Risk/build-qtest/CMakeFiles/qt_tests.dir/compiler_depend.internal".
+Consolidate compiler generated dependencies of target qt_tests
+gmake[3]: Leaving directory '/home/molefe/School/Insure-Risk/build-qtest'
+/usr/bin/gmake  -f CMakeFiles/qt_tests.dir/build.make CMakeFiles/qt_tests.dir/build
+gmake[3]: Entering directory '/home/molefe/School/Insure-Risk/build-qtest'
+[ 40%] Building CXX object CMakeFiles/qt_tests.dir/qt_test.cpp.o
+/usr/bin/c++ -DQT_CORE_LIB -DQT_NO_DEBUG -DQT_TESTCASE_BUILDDIR=\"/home/molefe/School/Insure-Risk/build-qtest\" -DQT_TESTCASE_SOURCEDIR=\"/home/molefe/School/Insure-Risk\" -DQT_TESTLIB_LIB -I/home/molefe/School/Insure-Risk/build-qtest/qt_tests_autogen/include -I/home/molefe/School/Insure-Risk/include -isystem /usr/include/x86_64-linux-gnu/qt6/QtTest -isystem /usr/include/x86_64-linux-gnu/qt6 -isystem /usr/include/x86_64-linux-gnu/qt6/QtCore -isystem /usr/lib/x86_64-linux-gnu/qt6/mkspecs/linux-g++ -std=gnu++17 -MD -MT CMakeFiles/qt_tests.dir/qt_test.cpp.o -MF CMakeFiles/qt_tests.dir/qt_test.cpp.o.d -o CMakeFiles/qt_tests.dir/qt_test.cpp.o -c /home/molefe/School/Insure-Risk/qt_test.cpp
+[ 60%] Linking CXX executable qt_tests
+/usr/bin/cmake -E cmake_link_script CMakeFiles/qt_tests.dir/link.txt --verbose=1
+/usr/bin/c++ -Wl,--dependency-file=CMakeFiles/qt_tests.dir/link.d CMakeFiles/qt_tests.dir/qt_tests_autogen/mocs_compilation.cpp.o CMakeFiles/qt_tests.dir/qt_test.cpp.o -o qt_tests  /usr/lib/x86_64-linux-gnu/libQt6Test.so.6.11.2 /usr/lib/x86_64-linux-gnu/libQt6Core.so.6.11.2
+gmake[3]: Leaving directory '/home/molefe/School/Insure-Risk/build-qtest'
+[100%] Built target qt_tests
+gmake[2]: Leaving directory '/home/molefe/School/Insure-Risk/build-qtest'
+/usr/bin/cmake -E cmake_progress_start /home/molefe/School/Insure-Risk/build-qtest/CMakeFiles 0
+gmake[1]: Leaving directory '/home/molefe/School/Insure-Risk/build-qtest'
+

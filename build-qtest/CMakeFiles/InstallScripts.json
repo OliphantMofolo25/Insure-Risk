@@ -1,0 +1,7 @@
+{
+	"InstallScripts" : 
+	[
+		"/home/molefe/School/Insure-Risk/build-qtest/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

@@ -1,0 +1,1 @@
+/usr/bin/c++ -Wl,--dependency-file=CMakeFiles/catch_tests.dir/link.d CMakeFiles/catch_tests.dir/catch_tests_autogen/mocs_compilation.cpp.o CMakeFiles/catch_tests.dir/test.cpp.o -o catch_tests  /usr/lib/libCatch2Main.a /usr/lib/libCatch2.a

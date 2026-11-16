@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="(empty)"
+	tests="4"
+	failures="0"
+	disabled="0"
+	skipped="0"
+	hostname=""
+	time="0"
+	timestamp="2026-11-11T03:59:05"
+	>
+	<testcase name="PolicyholderTest.ValidationAndGetters" classname="PolicyholderTest.ValidationAndGetters" time="0.0233777" status="run">
+		<properties/>
+		<system-out>Running main() from /home/molefe/School/Insure-Risk/build-wsl/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = PolicyholderTest.ValidationAndGetters
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from PolicyholderTest
+[ RUN      ] PolicyholderTest.ValidationAndGetters
+[       OK ] PolicyholderTest.ValidationAndGetters (0 ms)
+[----------] 1 test from PolicyholderTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+</system-out>
+	</testcase>
+	<testcase name="RiskEvaluatorTest.Calculations" classname="RiskEvaluatorTest.Calculations" time="0.0166407" status="run">
+		<properties/>
+		<system-out>Running main() from /home/molefe/School/Insure-Risk/build-wsl/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = RiskEvaluatorTest.Calculations
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from RiskEvaluatorTest
+[ RUN      ] RiskEvaluatorTest.Calculations
+[       OK ] RiskEvaluatorTest.Calculations (0 ms)
+[----------] 1 test from RiskEvaluatorTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+</system-out>
+	</testcase>
+	<testcase name="ActuarialEngineTest.PremiumPricing" classname="ActuarialEngineTest.PremiumPricing" time="0.0489009" status="run">
+		<properties/>
+		<system-out>Running main() from /home/molefe/School/Insure-Risk/build-wsl/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = ActuarialEngineTest.PremiumPricing
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from ActuarialEngineTest
+[ RUN      ] ActuarialEngineTest.PremiumPricing
+[       OK ] ActuarialEngineTest.PremiumPricing (4 ms)
+[----------] 1 test from ActuarialEngineTest (8 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (10 ms total)
+[  PASSED  ] 1 test.
+</system-out>
+	</testcase>
+	<testcase name="MonteCarloSimulatorTest.SimulationAndVaR" classname="MonteCarloSimulatorTest.SimulationAndVaR" time="0.0177658" status="run">
+		<properties/>
+		<system-out>Running main() from /home/molefe/School/Insure-Risk/build-wsl/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = MonteCarloSimulatorTest.SimulationAndVaR
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from MonteCarloSimulatorTest
+[ RUN      ] MonteCarloSimulatorTest.SimulationAndVaR
+[       OK ] MonteCarloSimulatorTest.SimulationAndVaR (1 ms)
+[----------] 1 test from MonteCarloSimulatorTest (9 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (9 ms total)
+[  PASSED  ] 1 test.
+</system-out>
+	</testcase>
+</testsuite>

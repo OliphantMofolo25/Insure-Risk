@@ -34,6 +34,7 @@
 #include <algorithm>
 #include <QFileDialog>
 #include <QSaveFile>
+#include <QFileInfo>
 #include <QTextStream>
 #include <QPdfWriter>
 #include <QInputDialog>
@@ -477,11 +478,10 @@ void MainWindow::setupUI()
     workBox->addWidget(simProgressBar);
 
     auto *actions = new QHBoxLayout;
-    quoteBtn = new QPushButton("↓ Quote PDF"); quoteBtn->setEnabled(false);
+    quoteBtn = new QPushButton("Save selected quote PDF"); quoteBtn->setEnabled(false);
     acceptBtn = new QPushButton("✓ Accept & Save"); acceptBtn->setObjectName("GreenPrimaryBtn"); acceptBtn->setEnabled(false);
     referBtn = new QPushButton("Refer"); referBtn->setObjectName("YellowSecondaryBtn"); referBtn->setEnabled(false);
     rejectBtn = new QPushButton("Reject"); rejectBtn->setObjectName("RedDangerBtn"); rejectBtn->setEnabled(false);
-    actions->addWidget(quoteBtn);
     actions->addStretch();
     actions->addWidget(rejectBtn);
     actions->addWidget(acceptBtn);
@@ -514,10 +514,22 @@ void MainWindow::setupUI()
     auto *matrixHead = new QHBoxLayout;
     matrixHead->addWidget(text("Compare quotes", "title"));
     matrixHead->addStretch();
+    matrixHead->addWidget(quoteBtn);
     auto *generateQuotes = new QPushButton("Generate quotes"); generateQuotes->setObjectName("GreenPrimaryBtn");
     matrixHead->addWidget(generateQuotes);
     matrixLayout->addLayout(matrixHead);
     matrixLayout->addWidget(text("Three deductible options based on the latest simulation.", "muted"));
+    matrixLayout->addWidget(text("Recent saved policies · select one to compare quote options", "caption"));
+    recentPolicyTable = new QTableWidget;
+    recentPolicyTable->setColumnCount(5);
+    recentPolicyTable->setHorizontalHeaderLabels({"Policy ID", "Policyholder", "Cover", "Risk", "Annual premium (M)"});
+    recentPolicyTable->setSelectionBehavior(QAbstractItemView::SelectRows);
+    recentPolicyTable->setSelectionMode(QAbstractItemView::SingleSelection);
+    recentPolicyTable->setEditTriggers(QAbstractItemView::NoEditTriggers);
+    recentPolicyTable->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+    recentPolicyTable->verticalHeader()->setVisible(false);
+    recentPolicyTable->setMaximumHeight(150);
+    matrixLayout->addWidget(recentPolicyTable);
     struct QuoteCard {
         QFrame *frame;
         QLabel *name;
@@ -587,7 +599,7 @@ void MainWindow::setupUI()
     preview->setWordWrap(true);
     advisoryLayout->addWidget(preview);
     advisoryLayout->addWidget(text("Risk mitigation", "caption"));
-    mitigationMeasures = RiskAdvisoryEngine::suggestions(latestScore);
+    mitigationMeasures = RiskAdvisoryEngine::suggestions(latestScore, static_cast<CoverType>(coverTypeCombo->currentIndex()));
     QVector<QCheckBox *> measureChecks;
     for (const auto &measure : mitigationMeasures) {
         auto *check = new QCheckBox(measure.name);
@@ -617,10 +629,22 @@ void MainWindow::setupUI()
     for (auto *check : measureChecks) {
         connect(check, &QCheckBox::toggled, this, updateImpact);
     }
+    auto updateMitigationRecommendations = [this, measureChecks, updateImpact]() {
+        mitigationMeasures = RiskAdvisoryEngine::suggestions(latestScore, static_cast<CoverType>(coverTypeCombo->currentIndex()));
+        for (qsizetype i = 0; i < measureChecks.size() && i < mitigationMeasures.size(); ++i) {
+            measureChecks[i]->setText(mitigationMeasures[i].name);
+            measureChecks[i]->setToolTip(mitigationMeasures[i].description);
+            measureChecks[i]->setChecked(false);
+        }
+        updateImpact();
+    };
+    connect(coverTypeCombo, &QComboBox::currentIndexChanged, this, [updateMitigationRecommendations](int) { updateMitigationRecommendations(); });
 
     const auto showQuote = [this, preview](int index) {
         if (index < 0 || index >= latestPricing.tiers.size()) return;
         const auto &tier = latestPricing.tiers[index];
+        selectedPricingTier = index;
+        quoteBtn->setEnabled(true);
         preview->setText(QString("QUOTE PREVIEW\n%1\n%2 per month\n%3 per year\n%4% deductible")
             .arg(tier.name, DynamicPricingEngine::money(tier.monthlyPremium),
                  DynamicPricingEngine::money(tier.annualPremium), QString::number(tier.deductiblePercent, 'g')));
@@ -628,7 +652,7 @@ void MainWindow::setupUI()
     connect(previewButtons, &QButtonGroup::idClicked, this, showQuote);
 
     auto updatePricing = [this, quoteCards, quoteNote, showQuote, deductibleSlider, marginSlider, loadingSlider,
-                          deductibleValue, marginValue, loadingValue, measureChecks, updateImpact]() {
+                          deductibleValue, marginValue, loadingValue, measureChecks, updateImpact, updateMitigationRecommendations]() {
         deductibleValue->setText(QString::number(deductibleSlider->value()) + "%");
         marginValue->setText(QString::number(marginSlider->value()) + "%");
         loadingValue->setText(QString::number(loadingSlider->value()) + "%");
@@ -655,14 +679,28 @@ void MainWindow::setupUI()
                 showQuote(row);
             }
         }
-        mitigationMeasures = RiskAdvisoryEngine::suggestions(latestScore);
+        updateMitigationRecommendations();
         for (auto *check : measureChecks) check->setEnabled(true);
-        updateImpact();
         quoteNote->setText(latestScore >= 55.0
             ? "The pricing model recommends the high deductible for a risk score of 55 or higher."
             : "The pricing model recommends the medium deductible for a risk score below 55.");
     };
     connect(generateQuotes, &QPushButton::clicked, this, updatePricing);
+    connect(recentPolicyTable, &QTableWidget::cellClicked, this,
+            [this, updatePricing, quoteNote](int row, int) {
+        auto *idItem = recentPolicyTable->item(row, 0);
+        if (!idItem) return;
+        policyIdInput->setText(idItem->data(Qt::UserRole).toString());
+        clientNameInput->setText(idItem->data(Qt::UserRole + 1).toString());
+        coverTypeCombo->setCurrentIndex(idItem->data(Qt::UserRole + 2).toInt());
+        latestScore = idItem->data(Qt::UserRole + 3).toDouble();
+        latestExpectedLoss = idItem->data(Qt::UserRole + 4).toDouble();
+        latestCapitalCharge = (idItem->data(Qt::UserRole + 5).toDouble() - latestExpectedLoss) * .06;
+        latestAnnualPremium = idItem->data(Qt::UserRole + 6).toDouble();
+        quoteNote->setText(QString("Loaded %1 for %2. Select an option to preview the quote.")
+            .arg(policyIdInput->text(), clientNameInput->text()));
+        updatePricing();
+    });
     connect(recalculatePricing, &QPushButton::clicked, this, updatePricing);
     connect(resetPricing, &QPushButton::clicked, this, [deductibleSlider, marginSlider, loadingSlider, updatePricing](){ deductibleSlider->setValue(0); marginSlider->setValue(20); loadingSlider->setValue(25); updatePricing(); });
     // Policy records
@@ -1041,14 +1079,19 @@ void MainWindow::setupUI()
     connect(themeBtn, &QPushButton::clicked, this, toggleTheme);
     connect(authThemeBtn, &QPushButton::clicked, this, toggleTheme);
     connect(csv,&QPushButton::clicked,this,[this,analyticsTab](){const QString file=QFileDialog::getSaveFileName(this,"Export policy records",QString(),"CSV files (*.csv)");if(file.isEmpty())return;QSaveFile out(file);if(!out.open(QIODevice::WriteOnly|QIODevice::Text)){QMessageBox::warning(this,"Export failed","Unable to write the selected file.");return;}QTextStream stream(&out);for(int c=0;c<recordsTable->columnCount();++c){if(c)stream<<",";stream<<recordsTable->horizontalHeaderItem(c)->text();}stream<<"\n";for(int r=0;r<recordsTable->rowCount();++r){for(int c=0;c<recordsTable->columnCount();++c){if(c)stream<<",";auto *item=recordsTable->item(r,c);stream<<(item?item->text():QString());}stream<<"\n";}if(out.commit())QMessageBox::information(this,"CSV export","Policy records exported successfully.");});
-    connect(quoteBtn,&QPushButton::clicked,this,[this,analyticsTab](){
-        if(latestReport.isEmpty()) return;
-        const QString file=QFileDialog::getSaveFileName(this,"Save actuarial quote",QString("actuarial-quote.pdf"),"PDF files (*.pdf)");
+    connect(quoteBtn,&QPushButton::clicked,this,[this](){
+        if (selectedPricingTier < 0 || selectedPricingTier >= latestPricing.tiers.size()) {
+            QMessageBox::information(this, "Quote not ready", "Generate quotes and select a quote option before creating its PDF.");
+            return;
+        }
+        const auto tier = latestPricing.tiers[selectedPricingTier];
+        const QString defaultName = QString("%1-%2.pdf").arg(policyIdInput->text().isEmpty() ? "policy-quote" : policyIdInput->text(), tier.name.toLower().replace(' ', '-'));
+        const QString file=QFileDialog::getSaveFileName(this,"Save selected quote",defaultName,"PDF files (*.pdf)");
         if(file.isEmpty()) return;
         QPdfWriter writer(file); writer.setResolution(72); writer.setPageSize(QPageSize(QPageSize::A4)); writer.setPageMargins(QMarginsF(15,15,15,15));
         QPainter painter(&writer); const int w = writer.width(), margin = 30;
 
-        documentHeader(painter, w, "Actuarial quote", policyIdInput->text());
+        documentHeader(painter, w, "Selected policy quote", policyIdInput->text());
         int y = 145;
         painter.setPen(QColor("#1e293b"));
         painter.drawText(QRect(margin, y - 17, 100, 22), Qt::AlignVCenter, "Policy ID");
@@ -1058,15 +1101,26 @@ void MainWindow::setupUI()
         painter.drawText(QRect(margin, y - 17, 100, 22), Qt::AlignVCenter, "Client");
         painter.drawText(QRect(margin + 100, y - 17, w - 2*margin - 100, 22),
                          Qt::AlignRight | Qt::AlignVCenter, clientNameInput->text());
+        y += 42;
+        painter.drawText(QRect(margin, y - 17, 100, 22), Qt::AlignVCenter, "Cover type");
+        painter.drawText(QRect(margin + 100, y - 17, w - 2*margin - 100, 22), Qt::AlignRight | Qt::AlignVCenter, coverTypeCombo->currentText());
+        y += 42;
+        painter.drawText(QRect(margin, y - 17, 100, 22), Qt::AlignVCenter, "Selected option");
+        painter.drawText(QRect(margin + 100, y - 17, w - 2*margin - 100, 22), Qt::AlignRight | Qt::AlignVCenter, tier.name);
         y += 55;
-        const QList<QPair<QString,QString>> rows={{"Expected annual loss",DynamicPricingEngine::money(latestExpectedLoss)},{"Risk-loaded loss",DynamicPricingEngine::money(latestRiskLoadedLoss)},{"Capital charge",DynamicPricingEngine::money(latestCapitalCharge)},{"Administration fee",DynamicPricingEngine::money(150.0)}};
+        const QList<QPair<QString,QString>> rows={{"Risk score",QString::number(latestScore, 'f', 2)},
+            {"Expected annual loss",DynamicPricingEngine::money(latestExpectedLoss)},
+            {"Client deductible",QString::number(tier.deductiblePercent, 'g') + "%"}};
         painter.fillRect(margin,y,w-margin*2,34,QColor("#f3f6fa")); painter.setFont(QFont("Segoe UI",11,QFont::Bold)); painter.drawText(margin+12,y+23,"Pricing item"); painter.drawText(QRect(margin+280,y,w-margin-(margin+280),34),Qt::AlignRight|Qt::AlignVCenter,"Amount"); y+=34;
         painter.setFont(QFont("Segoe UI",11));
         for(const auto &row:rows){ painter.setPen(QColor("#d9e1ea")); painter.drawLine(margin,y,w-margin,y); painter.setPen(QColor("#1b2430")); painter.drawText(margin+12,y+28,row.first); painter.drawText(QRect(margin+280,y,w-margin-(margin+280),42),Qt::AlignRight|Qt::AlignVCenter,row.second); y+=42; }
-        painter.setPen(QColor("#16a34a")); painter.fillRect(margin,y,w-margin*2,52,QColor("#ecfdf3")); painter.setFont(QFont("Segoe UI",12,QFont::Bold)); painter.drawText(margin+12,y+32,"Annual premium"); painter.drawText(QRect(margin+200,y,w-2*margin-212,52),Qt::AlignRight | Qt::AlignVCenter,DynamicPricingEngine::money(latestAnnualPremium)); y+=72;
-        painter.fillRect(margin,y,w-margin*2,52,QColor("#ecfdf3")); painter.setPen(QColor("#15803d")); painter.drawText(margin+12,y+32,"Monthly premium"); painter.drawText(QRect(margin+200,y,w-2*margin-212,52),Qt::AlignRight | Qt::AlignVCenter,DynamicPricingEngine::money(latestMonthlyPremium)); y+=86;
-        painter.setPen(QColor("#1b2430")); painter.setFont(QFont("Segoe UI",11,QFont::Bold)); painter.drawText(margin,y,"Underwriting summary"); y+=27; painter.setFont(QFont("Segoe UI",10)); painter.drawText(QRect(margin,y,w-margin*2,80),Qt::TextWordWrap,"This quote is based on the policy details supplied. The assessed risk score is "+QString::number(latestScore,'f',2)+". Please contact your underwriter if you need help understanding your cover or premium.");
-        painter.end(); QMessageBox::information(this,"Quote created","Your structured actuarial quote was saved.");
+        painter.setPen(QColor("#16a34a")); painter.fillRect(margin,y,w-margin*2,52,QColor("#ecfdf3")); painter.setFont(QFont("Segoe UI",12,QFont::Bold)); painter.drawText(margin+12,y+32,"Annual premium"); painter.drawText(QRect(margin+200,y,w-2*margin-212,52),Qt::AlignRight | Qt::AlignVCenter,DynamicPricingEngine::money(tier.annualPremium)); y+=72;
+        painter.fillRect(margin,y,w-margin*2,52,QColor("#ecfdf3")); painter.setPen(QColor("#15803d")); painter.drawText(margin+12,y+32,"Monthly premium"); painter.drawText(QRect(margin+200,y,w-2*margin-212,52),Qt::AlignRight | Qt::AlignVCenter,DynamicPricingEngine::money(tier.monthlyPremium));
+        painter.end();
+        if (QFileInfo::exists(file) && QFileInfo(file).size() > 0)
+            QMessageBox::information(this,"Quote created",QString("The %1 quote PDF was saved to:\n%2").arg(tier.name, file));
+        else
+            QMessageBox::warning(this,"PDF creation failed","The quote PDF could not be written to the selected location.");
     });
 
 }
@@ -1230,7 +1284,7 @@ void MainWindow::runSimulation(){
     decisionBadge->style()->polish(decisionBadge);
     latestScore=score; latestExpectedLoss=loss; latestRiskLoadedLoss=loss*1.25; latestCapitalCharge=(var-loss)*.06; latestAnnualPremium=annual; latestMonthlyPremium=monthly;
     resultsOutput->setPlainText(QString("Expected annual loss                         M %1\nRisk-loaded loss (× 1.25)                    M %2\nCapital charge                                M %3\nAdmin fee                                     M 150.00\n\nANNUAL SUBTOTAL                               M %4\n\nMONTHLY PREMIUM                               M %5\n\nUnderwriting notes\n• Risk assessment completed using your policy details.\n• Final decision follows the published risk thresholds.").arg(loss,0,'f',2).arg(loss*1.25,0,'f',2).arg((var-loss)*.06,0,'f',2).arg(annual,0,'f',2).arg(monthly,0,'f',2).arg(score,0,'f',2));
-    const int zonePoints=geoZoneCombo->currentText()=="Urban"?5:(geoZoneCombo->currentText()=="Suburban"?9:15); const int driverValues[5]={qBound(0,age*25/80,25),qBound(0,static_cast<int>((loans/qMax(1.0,income*12.0))*25.0),25),zonePoints,qBound(0,risk*5,25),qBound(0,static_cast<int>(asset/50000.0*10.0),10)}; for(int i=0;i<riskDriverBars.size()&&i<5;++i) riskDriverBars[i]->setValue(driverValues[i]); latestReport=resultsOutput->toPlainText(); acceptBtn->setEnabled(true);rejectBtn->setEnabled(true);referBtn->setEnabled(true);quoteBtn->setEnabled(true);
+    const int zonePoints=geoZoneCombo->currentText()=="Urban"?5:(geoZoneCombo->currentText()=="Suburban"?9:15); const int driverValues[5]={qBound(0,age*25/80,25),qBound(0,static_cast<int>((loans/qMax(1.0,income*12.0))*25.0),25),zonePoints,qBound(0,risk*5,25),qBound(0,static_cast<int>(asset/50000.0*10.0),10)}; for(int i=0;i<riskDriverBars.size()&&i<5;++i) riskDriverBars[i]->setValue(driverValues[i]); latestReport=resultsOutput->toPlainText(); acceptBtn->setEnabled(true);rejectBtn->setEnabled(true);referBtn->setEnabled(true);
 }
 
 static bool saveCurrentPolicy(MainWindow *w,const QString &status){
@@ -1248,16 +1302,45 @@ void MainWindow::rejectApplication(){
 }
 void MainWindow::refreshDatabaseTable(){
     sqlite3 *db=nullptr; if(sqlite3_open("insurerisk.db",&db)!=SQLITE_OK){if(db)sqlite3_close(db);return;}
-    sqlite3_stmt *stmt=nullptr; const char *query="SELECT id, policy_id, client_name, phone_number, cover_type, risk_score, monthly_premium, annual_premium, status FROM policies ORDER BY id DESC;";
+    sqlite3_stmt *stmt=nullptr; const char *query="SELECT id, policy_id, client_name, phone_number, cover_type, risk_score, monthly_premium, annual_premium, status, expected_loss, var_95 FROM policies ORDER BY id DESC;";
     if(sqlite3_prepare_v2(db,query,-1,&stmt,nullptr)!=SQLITE_OK){sqlite3_close(db);return;}
-    recordsTable->blockSignals(true); recordsTable->setRowCount(0); int row=0;
+    recordsTable->blockSignals(true); recordsTable->setRowCount(0); if(recentPolicyTable) recentPolicyTable->setRowCount(0); int row=0;
     while(sqlite3_step(stmt)==SQLITE_ROW){
         recordsTable->insertRow(row);
+        const auto columnText = [stmt](int column) {
+            const auto *raw = sqlite3_column_text(stmt, column);
+            return raw ? QString::fromUtf8(reinterpret_cast<const char *>(raw)) : QString();
+        };
+        const QString policyId = columnText(1);
+        const QString clientName = columnText(2);
+        if (recentPolicyTable && row < 5) {
+            recentPolicyTable->insertRow(row);
+            const QString coverName = columnText(4);
+            int coverIndex = coverName == "Life Insurance" ? 0 : coverName == "Car Insurance" ? 1 : coverName == "Property Insurance" ? 2 : 3;
+            QStringList recentValues{policyId, clientName, coverName,
+                QString::number(sqlite3_column_double(stmt, 5), 'f', 1),
+                QString::number(sqlite3_column_double(stmt, 7), 'f', 2)};
+            for (int col = 0; col < recentValues.size(); ++col) {
+                auto *item = new QTableWidgetItem(recentValues[col]);
+                if (col == 0) {
+                    item->setData(Qt::UserRole, policyId);
+                    item->setData(Qt::UserRole + 1, clientName);
+                    item->setData(Qt::UserRole + 2, coverIndex);
+                    item->setData(Qt::UserRole + 3, sqlite3_column_double(stmt, 5));
+                    item->setData(Qt::UserRole + 4, sqlite3_column_double(stmt, 9));
+                    item->setData(Qt::UserRole + 5, sqlite3_column_double(stmt, 10));
+                    item->setData(Qt::UserRole + 6, sqlite3_column_double(stmt, 7));
+                }
+                recentPolicyTable->setItem(row, col, item);
+            }
+        }
         for(int col=0;col<8;++col){
             const int source=col+1; QString value;
             if(col==4) value=QString::number(sqlite3_column_double(stmt,source),'f',2);
             else if(col==5 || col==6) value=QString::number(sqlite3_column_double(stmt,source),'f',2);
-            else {const auto *raw=sqlite3_column_text(stmt,source);value=raw?QString::fromUtf8(reinterpret_cast<const char*>(raw)):QString();}
+            else if(col==0) value=policyId;
+            else if(col==1) value=clientName;
+            else value=columnText(source);
             if(col==7 && value=="Accepted") value="Approved";
             auto *item=new QTableWidgetItem(value);
             if(col==0) item->setData(Qt::UserRole,sqlite3_column_int(stmt,0));

@@ -1,0 +1,6 @@
+Label,# Samples,Average,Min,Max,Std. Dev.,Error %,Throughput,Received KB/sec,Sent KB/sec,Avg. Bytes
+JDBC Request,150,17,0,1447,132.29,0.000%,39.30818,0.42,0.00,11.0
+JDBC Request(Policies),100,4,0,305,31.55,0.000%,.17635,0.00,0.00,11.0
+JDBC Request(users),100,1,0,33,3.73,0.000%,.17645,0.00,0.00,11.0
+JDBC Request(settings),100,1,0,110,11.29,0.000%,.17645,0.00,0.00,11.0
+TOTAL,450,7,0,1447,78.35,0.000%,.01977,0.00,0.00,11.0

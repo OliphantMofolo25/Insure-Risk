@@ -1,0 +1,128 @@
+Start testing: Nov 16 19:12 SAST
+----------------------------------------------------------
+1/5 Testing: InsuranceRiskSuite.BasicSanityCheck
+1/5 Test: InsuranceRiskSuite.BasicSanityCheck
+Command: "/home/mofolo/Documents/Insure-Risk/build-wsl/gtest_runner" "--gtest_filter=InsuranceRiskSuite.BasicSanityCheck" "--gtest_also_run_disabled_tests"
+Directory: /home/mofolo/Documents/Insure-Risk/build-wsl
+"InsuranceRiskSuite.BasicSanityCheck" start time: Nov 16 19:12 SAST
+Output:
+----------------------------------------------------------
+Running main() from ./googletest/src/gtest_main.cc
+Note: Google Test filter = InsuranceRiskSuite.BasicSanityCheck
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from InsuranceRiskSuite
+[ RUN      ] InsuranceRiskSuite.BasicSanityCheck
+[       OK ] InsuranceRiskSuite.BasicSanityCheck (0 ms)
+[----------] 1 test from InsuranceRiskSuite (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.09 sec
+----------------------------------------------------------
+Test Passed.
+"InsuranceRiskSuite.BasicSanityCheck" end time: Nov 16 19:12 SAST
+"InsuranceRiskSuite.BasicSanityCheck" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/5 Testing: InsuranceRiskSuite.ValidAgeBoundary
+2/5 Test: InsuranceRiskSuite.ValidAgeBoundary
+Command: "/home/mofolo/Documents/Insure-Risk/build-wsl/gtest_runner" "--gtest_filter=InsuranceRiskSuite.ValidAgeBoundary" "--gtest_also_run_disabled_tests"
+Directory: /home/mofolo/Documents/Insure-Risk/build-wsl
+"InsuranceRiskSuite.ValidAgeBoundary" start time: Nov 16 19:12 SAST
+Output:
+----------------------------------------------------------
+Running main() from ./googletest/src/gtest_main.cc
+Note: Google Test filter = InsuranceRiskSuite.ValidAgeBoundary
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from InsuranceRiskSuite
+[ RUN      ] InsuranceRiskSuite.ValidAgeBoundary
+[       OK ] InsuranceRiskSuite.ValidAgeBoundary (0 ms)
+[----------] 1 test from InsuranceRiskSuite (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"InsuranceRiskSuite.ValidAgeBoundary" end time: Nov 16 19:12 SAST
+"InsuranceRiskSuite.ValidAgeBoundary" time elapsed: 00:00:00
+----------------------------------------------------------
+
+3/5 Testing: InsuranceRiskSuite.RiskCategoryCheck
+3/5 Test: InsuranceRiskSuite.RiskCategoryCheck
+Command: "/home/mofolo/Documents/Insure-Risk/build-wsl/gtest_runner" "--gtest_filter=InsuranceRiskSuite.RiskCategoryCheck" "--gtest_also_run_disabled_tests"
+Directory: /home/mofolo/Documents/Insure-Risk/build-wsl
+"InsuranceRiskSuite.RiskCategoryCheck" start time: Nov 16 19:12 SAST
+Output:
+----------------------------------------------------------
+Running main() from ./googletest/src/gtest_main.cc
+Note: Google Test filter = InsuranceRiskSuite.RiskCategoryCheck
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from InsuranceRiskSuite
+[ RUN      ] InsuranceRiskSuite.RiskCategoryCheck
+[       OK ] InsuranceRiskSuite.RiskCategoryCheck (0 ms)
+[----------] 1 test from InsuranceRiskSuite (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"InsuranceRiskSuite.RiskCategoryCheck" end time: Nov 16 19:12 SAST
+"InsuranceRiskSuite.RiskCategoryCheck" time elapsed: 00:00:00
+----------------------------------------------------------
+
+4/5 Testing: Catch2Tests
+4/5 Test: Catch2Tests
+Command: "/home/mofolo/Documents/Insure-Risk/build-wsl/catch_tests"
+Directory: /home/mofolo/Documents/Insure-Risk/build-wsl
+"Catch2Tests" start time: Nov 16 19:12 SAST
+Output:
+----------------------------------------------------------
+Randomness seeded to: 914261655
+===============================================================================
+All tests passed (3 assertions in 1 test case)
+
+<end of output>
+Test time =   0.10 sec
+----------------------------------------------------------
+Test Passed.
+"Catch2Tests" end time: Nov 16 19:12 SAST
+"Catch2Tests" time elapsed: 00:00:00
+----------------------------------------------------------
+
+5/5 Testing: QtLibraryTests
+5/5 Test: QtLibraryTests
+Command: "/home/mofolo/Documents/Insure-Risk/build-wsl/qt_tests"
+Directory: /home/mofolo/Documents/Insure-Risk/build-wsl
+"QtLibraryTests" start time: Nov 16 19:12 SAST
+Output:
+----------------------------------------------------------
+********* Start testing of InsuranceTest *********
+Config: Using QtTest library 6.4.2, Qt 6.4.2 (x86_64-little_endian-lp64 shared (dynamic) release build; by GCC 13.2.0), linuxmint 22.3
+PASS   : InsuranceTest::initTestCase()
+PASS   : InsuranceTest::testAddition()
+PASS   : InsuranceTest::testRiskCategory()
+PASS   : InsuranceTest::testValidAge()
+PASS   : InsuranceTest::testInvalidAge()
+PASS   : InsuranceTest::cleanupTestCase()
+Totals: 6 passed, 0 failed, 0 skipped, 0 blacklisted, 2ms
+********* Finished testing of InsuranceTest *********
+<end of output>
+Test time =   0.20 sec
+----------------------------------------------------------
+Test Passed.
+"QtLibraryTests" end time: Nov 16 19:12 SAST
+"QtLibraryTests" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Nov 16 19:12 SAST

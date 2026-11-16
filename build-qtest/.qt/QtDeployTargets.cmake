@@ -1,0 +1,6 @@
+set(__QT_DEPLOY_TARGET_InsureRiskLinux_FILE /home/molefe/School/Insure-Risk/build-qtest/InsureRiskLinux)
+set(__QT_DEPLOY_TARGET_InsureRiskLinux_TYPE EXECUTABLE)
+set(__QT_DEPLOY_TARGET_catch_tests_FILE /home/molefe/School/Insure-Risk/build-qtest/catch_tests)
+set(__QT_DEPLOY_TARGET_catch_tests_TYPE EXECUTABLE)
+set(__QT_DEPLOY_TARGET_qt_tests_FILE /home/molefe/School/Insure-Risk/build-qtest/qt_tests)
+set(__QT_DEPLOY_TARGET_qt_tests_TYPE EXECUTABLE)

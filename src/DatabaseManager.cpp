@@ -75,19 +75,19 @@ bool DatabaseManager::savePolicyRecord(const Policyholder& ph, double riskScore,
 
     double monthlyPremium = annualPremium / 12.0;
 
-    sqlite3_bind_text(stmt, 1, ph.getUsername().c_str(), -1, SQLITE_STATIC);
-    sqlite3_bind_text(stmt, 2, ph.getPolicyId().c_str(), -1, SQLITE_STATIC);
-    sqlite3_bind_text(stmt, 3, ph.getClientName().c_str(), -1, SQLITE_STATIC);
-    sqlite3_bind_text(stmt, 4, ph.getPhoneNumber().c_str(), -1, SQLITE_STATIC);
-    sqlite3_bind_text(stmt, 5, ph.getAddress().c_str(), -1, SQLITE_STATIC);
-    sqlite3_bind_text(stmt, 6, coverStr.c_str(), -1, SQLITE_STATIC);
+    sqlite3_bind_text(stmt, 1, ph.getUsername().c_str(), -1, SQLITE_TRANSIENT);
+    sqlite3_bind_text(stmt, 2, ph.getPolicyId().c_str(), -1, SQLITE_TRANSIENT);
+    sqlite3_bind_text(stmt, 3, ph.getClientName().c_str(), -1, SQLITE_TRANSIENT);
+    sqlite3_bind_text(stmt, 4, ph.getPhoneNumber().c_str(), -1, SQLITE_TRANSIENT);
+    sqlite3_bind_text(stmt, 5, ph.getAddress().c_str(), -1, SQLITE_TRANSIENT);
+    sqlite3_bind_text(stmt, 6, coverStr.c_str(), -1, SQLITE_TRANSIENT);
     sqlite3_bind_double(stmt, 7, ph.getAssetValue());
     sqlite3_bind_double(stmt, 8, riskScore);
     sqlite3_bind_double(stmt, 9, expectedLoss);
     sqlite3_bind_double(stmt, 10, var95);
     sqlite3_bind_double(stmt, 11, annualPremium);
     sqlite3_bind_double(stmt, 12, monthlyPremium);
-    sqlite3_bind_text(stmt, 13, status.c_str(), -1, SQLITE_STATIC);
+    sqlite3_bind_text(stmt, 13, status.c_str(), -1, SQLITE_TRANSIENT);
 
     int rc = sqlite3_step(stmt);
     if (rc != SQLITE_DONE) {

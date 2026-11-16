@@ -1,0 +1,20 @@
+{
+	"BUILD_DIR" : "/home/mofolo/Documents/Insure-Risk/build-wsl/InsureRiskLinux_autogen",
+	"CMAKE_BINARY_DIR" : "/home/mofolo/Documents/Insure-Risk/build-wsl",
+	"CMAKE_CURRENT_BINARY_DIR" : "/home/mofolo/Documents/Insure-Risk/build-wsl",
+	"CMAKE_CURRENT_SOURCE_DIR" : "/home/mofolo/Documents/Insure-Risk",
+	"CMAKE_SOURCE_DIR" : "/home/mofolo/Documents/Insure-Risk",
+	"GENERATOR" : "Ninja",
+	"INCLUDE_DIR" : "/home/mofolo/Documents/Insure-Risk/build-wsl/InsureRiskLinux_autogen/include",
+	"INPUTS" : [ "/home/mofolo/Documents/Insure-Risk/src/images/logo.png" ],
+	"LOCK_FILE" : "/home/mofolo/Documents/Insure-Risk/build-wsl/CMakeFiles/InsureRiskLinux_autogen.dir/AutoRcc_resources_EWIEGA46WW_Lock.lock",
+	"MULTI_CONFIG" : false,
+	"OPTIONS" : [ "-name", "resources" ],
+	"OUTPUT_CHECKSUM" : "EWIEGA46WW",
+	"OUTPUT_NAME" : "qrc_resources.cpp",
+	"RCC_EXECUTABLE" : "/usr/lib/qt6/libexec/rcc",
+	"RCC_LIST_OPTIONS" : [ "--list" ],
+	"SETTINGS_FILE" : "/home/mofolo/Documents/Insure-Risk/build-wsl/CMakeFiles/InsureRiskLinux_autogen.dir/AutoRcc_resources_EWIEGA46WW_Used.txt",
+	"SOURCE" : "/home/mofolo/Documents/Insure-Risk/resources.qrc",
+	"VERBOSITY" : 0
+}

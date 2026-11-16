@@ -100,6 +100,7 @@ private:
     double latestMonthlyPremium = 0.0;
 
     QTableWidget *recordsTable;
+    QTableWidget *recentPolicyTable = nullptr;
     QPushButton *refreshBtn;
 
     QLabel *analyticsSummaryLabel;
@@ -110,6 +111,7 @@ private:
     QLabel *decisionBadge = nullptr;
     bool darkTheme = false;
     PricingResult latestPricing;
+    int selectedPricingTier = -1;
     QVector<MitigationMeasure> mitigationMeasures;
 
     // Qt 6 Charts view

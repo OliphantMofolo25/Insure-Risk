@@ -2,6 +2,7 @@
 #include <QString>
 #include <QVector>
 #include <QMetaType>
+#include "Policyholder.hpp"
 
 struct MitigationMeasure {
     QString name;
@@ -17,7 +18,7 @@ struct MitigationOutcome {
 
 class RiskAdvisoryEngine {
 public:
-    static QVector<MitigationMeasure> suggestions(double riskScore);
+    static QVector<MitigationMeasure> suggestions(double riskScore, CoverType coverType = CoverType::Property);
     static MitigationOutcome combine(const QVector<MitigationMeasure>& selected);
 };
 Q_DECLARE_METATYPE(MitigationMeasure)

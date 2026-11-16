@@ -1,0 +1,50 @@
+{
+  "tests": 4,
+  "name": "AllTests",
+  "testsuites": [
+    {
+      "name": "PolicyholderTest",
+      "tests": 1,
+      "testsuite": [
+        {
+          "name": "ValidationAndGetters",
+          "file": "\/home\/molefe\/School\/Insure-Risk\/tests\/test_actuarial.cpp",
+          "line": 7
+        }
+      ]
+    },
+    {
+      "name": "RiskEvaluatorTest",
+      "tests": 1,
+      "testsuite": [
+        {
+          "name": "Calculations",
+          "file": "\/home\/molefe\/School\/Insure-Risk\/tests\/test_actuarial.cpp",
+          "line": 19
+        }
+      ]
+    },
+    {
+      "name": "ActuarialEngineTest",
+      "tests": 1,
+      "testsuite": [
+        {
+          "name": "PremiumPricing",
+          "file": "\/home\/molefe\/School\/Insure-Risk\/tests\/test_actuarial.cpp",
+          "line": 30
+        }
+      ]
+    },
+    {
+      "name": "MonteCarloSimulatorTest",
+      "tests": 1,
+      "testsuite": [
+        {
+          "name": "SimulationAndVaR",
+          "file": "\/home\/molefe\/School\/Insure-Risk\/tests\/test_actuarial.cpp",
+          "line": 45
+        }
+      ]
+    }
+  ]
+}

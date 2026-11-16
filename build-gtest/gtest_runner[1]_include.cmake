@@ -1,0 +1,5 @@
+if(EXISTS "/home/molefe/School/Insure-Risk/build-gtest/gtest_runner[1]_tests.cmake")
+  include("/home/molefe/School/Insure-Risk/build-gtest/gtest_runner[1]_tests.cmake")
+else()
+  add_test(gtest_runner_NOT_BUILT gtest_runner_NOT_BUILT)
+endif()

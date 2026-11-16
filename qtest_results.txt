@@ -1,0 +1,10 @@
+********* Start testing of InsuranceTest *********
+Config: Using QtTest library 6.11.2, Qt 6.11.2 (x86_64-little_endian-lp64 shared (dynamic) release build; by GCC 16.2.0), kali 2025.4
+PASS   : InsuranceTest::initTestCase()
+PASS   : InsuranceTest::testAddition()
+PASS   : InsuranceTest::testRiskCategory()
+PASS   : InsuranceTest::testValidAge()
+PASS   : InsuranceTest::testInvalidAge()
+PASS   : InsuranceTest::cleanupTestCase()
+Totals: 6 passed, 0 failed, 0 skipped, 0 blacklisted, 2ms
+********* Finished testing of InsuranceTest *********
